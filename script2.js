@@ -1,100 +1,81 @@
+//1
 
-function test(string,a,b){
-    string = string.split("")
-    for(let i = 0; i<string.length;i++){
-        if(string[i] === a){
-            string[i] = b
+function checkPrimeNumber(number){
+    if(number === 1 || number === 2){
+        return true
+    } else {
+        for(let i = 2; i < number; i++){
+            if(number % i === 0){
+                return false
+            }
         }
+        return true
     }
-    return string.join("")
-    
+
 }
 
-console.log(test("Armen","A","B")); 
+console.log(checkPrimeNumber())
 
-// ------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
-let getCountSymbols = (text, a) =>{
-    let count = 0
-    let i = 0
-    while(i<text.length){
-        if(text[i]===a){
-            count++
-            } 
-        i++
+// 2  --- the first function is used here ~ RECOMMENT for work
 
-     } 
-     return count
-} 
-
-console.log(getCountSymbols('hhhadsdfjjjj','j'))
-
- // ----------------------------------------------------------
-
- let num = 10
-
-
-for(let i = 1; i<=num;i++){
-    let number = ""
-    for(let j = 1; j <= i;j++){
-        number = number + j
+function primeNumbersBeforeGivenNumber(number){
+    const n = 100;
+for (let i = 1; i <= n; i++) {
+  for (let j = 2; j <= i; j++) {
+    if (i % j === 0 && j < i) {
+      break;
+    } else if (j === i) {
+      console.log(i);
     }
-    console.log(number)
+  }
 }
-
-for(let i = num-1; i>=1;i--){
-    let number = ""
-    for(let j = 1; j <= i;j++){
-        number = number + j
+        
     }
-    console.log(number)
-}
 
-// ----------------------------------------------------------------------------
+    primeNumbersBeforeGivenNumber()
 
-function checkPalindrome(string) {
 
-    const len = string.length;
+    //---------------------------------------------------------------------------
 
-    for (let i = 0; i < len / 2; i++) {
-        if (string[i] !== string[len - 1 - i]) {
-            return 'It is not a palindrome';
+//3
+
+
+function sumNumbersOfString(text){
+        let temp = "0";
+        let sum = 0;
+   
+        for (let i = 0; i < text.length; i++) {
+            let ch = text[i];
+   
+            if (!isNaN(String(ch) * 1)){
+                temp += ch;
+            }
+                
+            else {
+                sum += +temp;
+                temp = "0";
+            }
         }
-    }
-
-    return 'It is a palindrome';
+        return sum + parseInt(temp);
 }
 
+console.log(sumNumbersOfString("fjd25dfds25jsdhf5"))
 
 
-console.log(checkPalindrome("boooooooooobb"));
+4 
 
-// ---------------------------------------------------
-let num = 5
-let result = ""
-for(let i = 0; i<num;i++){
-    for(let j = 0; j < num;j++){
-        if(i === j || j === num - 1 - i){
-            result+=" * "
-        } else {
-            result+= "   "
+    function removeWordOfString(text,word){
+        let myText = text.split(" ");
+        console.log(myText)
+        for(let i = 0; i < myText.length; i++){
+            if(myText[i] === word){
+                myText = myText.slice(0,i).join(" ") + " " + myText.slice(i + 1 , myText.length).join(" ")
+            }
         }
+        console.log(myText)
+        return myText
     }
-    result+= "\n"
-}
-console.log(result)
 
-//-------------------------------------------
-let num = 5
-let result = ""
-for(let i = 0; i<num;i++){
-    for(let j = 0; j < num;j++){
-        if(i === j){
-            result+=" * "
-        } else {
-            result+= "   "
-        }
-    }
-    result+= "\n"
-}
-console.log(result)
+    console.log(removeWordOfString("this is some text","is"));
